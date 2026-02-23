@@ -33,5 +33,7 @@ class PropertyRecord(Base, TimestampMixin):
     acreage: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
     building_sqft: Mapped[Optional[int]] = mapped_column(Integer, nullable=True)
     year_built: Mapped[Optional[int]] = mapped_column(Integer, nullable=True)
+    lat: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
+    lon: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
     quality_score: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
     completeness_flags: Mapped[Optional[dict]] = mapped_column(JSON, nullable=True)

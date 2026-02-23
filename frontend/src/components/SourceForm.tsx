@@ -9,25 +9,44 @@ interface SourceFormProps {
 }
 
 const SOURCE_TYPES: { value: SourceType; label: string }[] = [
-  { value: 'ckan_api',     label: 'CT Open Data (Socrata)' },
-  { value: 'vision_gov',   label: 'Vision Assessor' },
-  { value: 'land_records', label: 'Land Records' },
-  { value: 'ct_sos',       label: 'CT Secretary of State' },
+  { value: 'ckan_api',          label: 'CT Open Data (Socrata)' },
+  { value: 'vision_gov',        label: 'Vision Assessor' },
+  { value: 'land_records',      label: 'Land Records (Laredo/Granicus)' },
+  { value: 'ct_sos',            label: 'CT Secretary of State' },
+  { value: 'iqs_land_records',  label: 'IQS Land Records' },
+  { value: 'patriot_assessor',  label: 'Patriot Properties Assessor' },
+  { value: 'arcgis_parcels',    label: 'ArcGIS Parcels (GIS)' },
+  { value: 'ct_courts',         label: 'CT Courts (Civil / Small Claims)' },
+  { value: 'ct_tax',            label: 'CT Tax Collector' },
+  { value: 'municipal_data',    label: 'Municipal Documents (Legistar)' },
 ]
 
 const DEFAULT_URLS: Record<SourceType, string> = {
-  ckan_api:     'https://data.ct.gov',
-  vision_gov:   'https://gis.vgsi.com',
-  land_records: 'https://www.landrecords.net',
-  ct_sos:       'https://www.concord-sots.ct.gov',
+  // Verified live URLs as of 2026
+  ckan_api:         'https://data.ct.gov',
+  vision_gov:       'https://gis.vgsi.com/greenwichct/',
+  land_records:     'https://www.uslandrecords.com/ctlr/',   // Avenu - covers 18 CT towns
+  ct_sos:           'https://www.concord-sots.ct.gov',
+  iqs_land_records: 'https://www.searchiqs.com/ctmilf/',     // SearchIQS - Milford CT
+  patriot_assessor: 'https://manchester.patriotproperties.com/', // Manchester CT uses Patriot
+  arcgis_parcels:   'https://cteco.uconn.edu/ctmaps/rest/services/Parcels/Parcels/FeatureServer/0',
+  ct_courts:        'https://civilinquiry.jud.ct.gov/',
+  ct_tax:           'https://www.mytaxbill.org',             // TaxSys (Grant Street Group)
+  municipal_data:   'https://hartford.civicweb.net/Portal',  // Hartford uses CivicWeb
 }
 
 // These are real starter configs, not just placeholder hint text
 const EXAMPLE_CONFIGS: Record<SourceType, string> = {
-  ckan_api:     '{"dataset_id": "5mzw-sjtu", "dataset_name": "Real Estate Sales", "tags": ["property"]}',
-  vision_gov:   '{"town": "Greenwich", "assessment_year": 2024, "use_playwright": false}',
-  land_records: '{"town": "Hartford", "days_back": 30}',
-  ct_sos:       '{}',
+  ckan_api:         '{"dataset_id": "5mzw-sjtu", "dataset_name": "Real Estate Sales", "tags": ["property"]}',
+  vision_gov:       '{"town": "Greenwich", "assessment_year": 2024, "use_playwright": false}',
+  land_records:     '{"town": "Bloomfield", "days_back": 30}',
+  ct_sos:           '{}',
+  iqs_land_records: '{"town": "Milford", "days_back": 30}',
+  patriot_assessor: '{"town": "Manchester", "assessment_year": 2024, "use_playwright": false}',
+  arcgis_parcels:   '{"town": "Connecticut", "layer_id": 0, "field_map": {}}',
+  ct_courts:        '{"case_type": "civil", "days_back": 30, "use_playwright": false}',
+  ct_tax:           '{"town": "hartford", "platform": "taxsys", "levy_year": 2025, "status_filter": "all"}',
+  municipal_data:   '{"town": "hartford", "platform": "civicweb", "days_back": 90, "document_types": ["agenda", "minutes"]}',
 }
 
 const initialType: SourceType = 'ckan_api'

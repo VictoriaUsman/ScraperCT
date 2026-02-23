@@ -11,12 +11,18 @@ from ..models.property_record import PropertyRecord
 from ..models.land_record import LandRecord
 from ..models.business_record import BusinessRecord
 from ..models.open_data_record import OpenDataRecord
+from ..models.court_record import CourtRecord
+from ..models.tax_record import TaxRecord
+from ..models.municipal_record import MunicipalRecord
 
 MODEL_MAP = {
     "properties": PropertyRecord,
     "land-records": LandRecord,
     "businesses": BusinessRecord,
     "open-data": OpenDataRecord,
+    "court-records": CourtRecord,
+    "tax-records": TaxRecord,
+    "municipal-records": MunicipalRecord,
 }
 
 

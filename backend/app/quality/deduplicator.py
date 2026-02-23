@@ -13,6 +13,9 @@ from ..models.property_record import PropertyRecord
 from ..models.land_record import LandRecord
 from ..models.business_record import BusinessRecord
 from ..models.open_data_record import OpenDataRecord
+from ..models.court_record import CourtRecord
+from ..models.tax_record import TaxRecord
+from ..models.municipal_record import MunicipalRecord
 
 DedupResult = Literal["new", "updated", "skipped"]
 
@@ -22,6 +25,12 @@ FINGERPRINT_FIELDS = {
     SourceType.land_records: ["town", "book", "page"],
     SourceType.ct_sos: ["business_id"],
     SourceType.ckan_api: ["dataset_id", "row_id"],
+    SourceType.iqs_land_records: ["town", "book", "page"],
+    SourceType.patriot_assessor: ["town", "parcel_id"],
+    SourceType.arcgis_parcels: ["town", "parcel_id"],
+    SourceType.ct_courts: ["case_number", "court_location"],
+    SourceType.ct_tax: ["town", "account_no", "levy_year"],
+    SourceType.municipal_data: ["town", "document_url"],
 }
 
 MODEL_MAP = {
@@ -29,6 +38,12 @@ MODEL_MAP = {
     SourceType.land_records: LandRecord,
     SourceType.ct_sos: BusinessRecord,
     SourceType.ckan_api: OpenDataRecord,
+    SourceType.iqs_land_records: LandRecord,
+    SourceType.patriot_assessor: PropertyRecord,
+    SourceType.arcgis_parcels: PropertyRecord,
+    SourceType.ct_courts: CourtRecord,
+    SourceType.ct_tax: TaxRecord,
+    SourceType.municipal_data: MunicipalRecord,
 }
 
 

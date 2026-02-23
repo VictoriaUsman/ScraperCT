@@ -7,7 +7,17 @@ const client = axios.create({
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
-export type SourceType = 'ckan_api' | 'vision_gov' | 'land_records' | 'ct_sos'
+export type SourceType =
+  | 'ckan_api'
+  | 'vision_gov'
+  | 'land_records'
+  | 'ct_sos'
+  | 'iqs_land_records'
+  | 'patriot_assessor'
+  | 'arcgis_parcels'
+  | 'ct_courts'
+  | 'ct_tax'
+  | 'municipal_data'
 export type JobStatus = 'pending' | 'running' | 'success' | 'failed' | 'cancelled'
 export type LandRecordType = 'deed' | 'mortgage' | 'lien' | 'release' | 'other'
 

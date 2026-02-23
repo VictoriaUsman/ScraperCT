@@ -15,6 +15,12 @@ class SourceType(str, enum.Enum):
     vision_gov = "vision_gov"
     land_records = "land_records"
     ct_sos = "ct_sos"
+    iqs_land_records = "iqs_land_records"
+    patriot_assessor = "patriot_assessor"
+    arcgis_parcels = "arcgis_parcels"
+    ct_courts = "ct_courts"
+    ct_tax = "ct_tax"
+    municipal_data = "municipal_data"
 
 
 class Source(Base, TimestampMixin):
